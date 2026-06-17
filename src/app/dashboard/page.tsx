@@ -324,14 +324,14 @@ export default function Dashboard() {
                                 <div className="text-center py-12 text-slate-500">Trash is empty</div>
                             ) : (
                                 trashTasks.map(task => (
-                                    <div key={task._id} className="bg-[#1a1a1a] border border-white/5 rounded-xl p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                                        <div>
+                                    <div key={task._id} className="group relative w-full bg-white/[0.02] border border-white/10 hover:border-white/20 rounded-xl p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.05)] backdrop-blur-sm">
+                                        <div className="flex-1">
                                             <h3 className="font-semibold text-slate-200">{task.title}</h3>
-                                            <p className="text-xs text-slate-500 mt-1">Deleted by: <span className="text-slate-300 font-medium">{task.deletedBy || 'Anonymous'}</span> on {task.deletedAt ? new Date(task.deletedAt).toLocaleDateString() : 'Unknown'}</p>
+                                            <p className="text-xs text-slate-500 mt-1.5">Deleted by: <span className="text-slate-300 font-medium">{task.deletedBy || 'Anonymous'}</span> on {task.deletedAt ? new Date(task.deletedAt).toLocaleDateString() : 'Unknown'}</p>
                                         </div>
-                                        <div className="flex items-center gap-2">
-                                            <button onClick={() => handleRestore(task._id)} className="px-3 py-1.5 bg-emerald-500/10 text-emerald-400 text-xs font-semibold rounded-lg hover:bg-emerald-500/20 transition-colors">Restore</button>
-                                            <button onClick={() => handleHardDelete(task._id)} className="px-3 py-1.5 bg-red-500/10 text-red-400 text-xs font-semibold rounded-lg hover:bg-red-500/20 transition-colors">Delete Forever</button>
+                                        <div className="flex items-center gap-2 mt-2 sm:mt-0">
+                                            <button onClick={() => handleRestore(task._id)} className="px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-lg hover:bg-emerald-500/20 transition-all shadow-[0_0_10px_rgba(16,185,129,0.1)] hover:shadow-[0_0_15px_rgba(16,185,129,0.2)]">Restore</button>
+                                            <button onClick={() => handleHardDelete(task._id)} className="px-4 py-2 bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-semibold rounded-lg hover:bg-red-500/20 transition-all shadow-[0_0_10px_rgba(239,68,68,0.1)] hover:shadow-[0_0_15px_rgba(239,68,68,0.2)]">Delete Forever</button>
                                         </div>
                                     </div>
                                 ))
