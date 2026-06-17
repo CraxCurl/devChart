@@ -36,8 +36,9 @@ export default async function Home() {
           devChart
         </h1>
 
-        <p className="max-w-2xl mt-8 text-lg md:text-xl text-slate-400 font-medium tracking-tight">
-          An easy tool for managing your tasks and collaborating with your team. Built for speed, designed for clarity. Have a nice time building.
+        <p className="max-w-2xl mt-8 text-lg md:text-xl text-white font-medium tracking-tight">
+          A powerful Kanban tool for modern developers.<br />
+          Manage tasks, track time, and stay productive.
         </p>
 
         <div className="mt-12 flex flex-col sm:flex-row items-center gap-4">
