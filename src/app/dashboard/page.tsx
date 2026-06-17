@@ -6,7 +6,7 @@ import React, { useState, useEffect } from "react";
 import { TextReveal } from "@/components/ui/cascade-text";
 import { GradientInput } from "@/components/ui/gradient-input";
 
-import { getAuthStatus } from "@/app/actions";
+import { getAuthStatus, getUserSession } from "@/app/actions";
 
 type Task = {
     _id: string;
@@ -31,6 +31,7 @@ export default function Dashboard() {
     const [isLoading, setIsLoading] = useState(true);
     const [isTrashModalOpen, setIsTrashModalOpen] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [user, setUser] = useState<{name: string, email: string} | null>(null);
 
     // For delete prompt
     const [taskToDelete, setTaskToDelete] = useState<string | null>(null);
@@ -59,6 +60,7 @@ export default function Dashboard() {
 
     useEffect(() => {
         getAuthStatus().then(status => setIsLoggedIn(status));
+        getUserSession().then(u => setUser(u));
         fetchTasks();
     }, []);
 
@@ -96,8 +98,22 @@ export default function Dashboard() {
         }
     };
 
-    const handleDelete = (id: string) => {
+    const handleDelete = async (id: string) => {
         if (!isLoggedIn) return;
+        
+        // If we know the user's name from session, delete instantly!
+        if (user && user.name) {
+            setTasks((prev) => prev.filter(t => t._id !== id));
+            try {
+                await fetch(`/api/tasks/${id}?user=${encodeURIComponent(user.name)}`, { method: 'DELETE' });
+            } catch (error) {
+                console.error("Failed to delete task", error);
+                fetchTasks();
+            }
+            return;
+        }
+
+        // Fallback if session hasn't loaded
         setTaskToDelete(id);
         setDeleteUserName(""); // Reset input
     };
