@@ -4,6 +4,8 @@ import { TextReveal } from "@/components/ui/cascade-text";
 import connectDB from "@/lib/mongodb";
 import Task from "@/models/Tasks";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
   await connectDB();
 
