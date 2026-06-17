@@ -6,6 +6,9 @@
   <p>An easy tool for managing your tasks and collaborating with your team. Built for speed, designed for clarity.</p>
 
   <p align="center">
+    <a href="https://dev-chart-five.vercel.app/" target="_blank">
+      <img src="https://img.shields.io/badge/LIVE_DEMO-dev--chart--five.vercel.app-white?style=for-the-badge&logo=vercel" alt="Live Demo" />
+    </a>
     <img src="https://img.shields.io/badge/NEXT.JS-15-black?style=for-the-badge&logo=next.js" alt="Next.js" />
     <img src="https://img.shields.io/badge/REACT-19-blue?style=for-the-badge&logo=react" alt="React" />
     <img src="https://img.shields.io/badge/MONGODB-ATLAS-green?style=for-the-badge&logo=mongodb" alt="MongoDB" />

@@ -15,6 +15,10 @@ type Task = {
     dueDate?: string;
     clubTag?: string;
     createdAt?: string;
+    isDeleted?: boolean;
+    deletedAt?: string;
+    deletedBy?: string;
+    createdBy?: string;
 };
 
 export default function Overview() {
