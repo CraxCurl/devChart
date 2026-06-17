@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <br />
+  <h1>🚀 devChart</h1>
+  <br />
+  <p><strong>Your Collaborative Task Manager</strong></p>
+  <p>An easy tool for managing your tasks and collaborating with your team. Built for speed, designed for clarity.</p>
 
-## Getting Started
+  <p align="center">
+    <img src="https://img.shields.io/badge/NEXT.JS-15-black?style=for-the-badge&logo=next.js" alt="Next.js" />
+    <img src="https://img.shields.io/badge/REACT-19-blue?style=for-the-badge&logo=react" alt="React" />
+    <img src="https://img.shields.io/badge/MONGODB-ATLAS-green?style=for-the-badge&logo=mongodb" alt="MongoDB" />
+    <img src="https://img.shields.io/badge/TAILWIND-CSS-06B6D4?style=for-the-badge&logo=tailwindcss" alt="Tailwind CSS" />
+  </p>
+</div>
 
-First, run the development server:
+<br />
+<hr />
+<br />
 
+## What is devChart?
+
+devChart is a full-stack, Next.js-powered task management platform specifically designed for student clubs and early-career teams. A user securely signs up (via password or passwordless OTP) and instantly gains access to a synchronized, highly aesthetic workspace.
+
+- **Command Center:** View active, in-progress, and completed tasks at a glance with live metrics and recent activity feeds.
+- **Interactive Kanban Board:** A highly responsive task board with smooth, dynamic interactions and categorization.
+- **Progressive Web App (PWA):** Installable natively on iOS, Android, and Desktop environments for lightning-fast, native-app access.
+
+## Features
+
+- **Modern Authentication:** Secure JWT-based password logins and email-based passwordless OTP.
+- **Real-time Metrics:** Dynamic stat cards keeping track of your club's entire productivity pipeline.
+- **Soft Deletes & Activity Logs:** Never lose track of who deleted what with built-in trash bins and activity feeds.
+- **Extreme UI/UX:** Dark mode by default, glassmorphism, micro-animations, scalable SVG icons, and custom typography for a truly premium feel.
+
+## Local Setup
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/your-username/devchart.git
+cd devchart
+```
+
+### 2. Install dependencies
+```bash
+npm install
+```
+
+### 3. Environment Variables
+Create a `.env.local` file in the root directory and add the following:
+```env
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_super_secret_jwt_key
+RESEND_API_KEY=your_resend_api_key_for_otp
+```
+
+### 4. Run the development server
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

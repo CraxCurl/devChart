@@ -1,11 +1,147 @@
 @import "tailwindcss";
 
+:root {
+  --demo-bg: #ffffff;
+  --demo-text: #1a1a1a;
+}
+
+body {
+  background-color: #050505;
+  color: white;
+  min-height: 100vh;
+  position: relative;
+  color-scheme: dark;
+}
+
+
+
 @layer utilities {
   .text-outline-black {
     -webkit-text-stroke: 1px black;
   }
+
+  /* AscendIQ Glassmorphism Utilities */
+  .glass-panel {
+    @apply bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl;
+  }
+
+  .glass-panel-hover {
+    @apply hover:bg-white/10 hover:border-white/20 transition-all duration-300;
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+
+  /* Legacy devChart Utilities (kept for fallback) */
+  .glass {
+    background: rgba(15, 15, 15, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-card {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .glass-input {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+  }
 }
 
-body {
-  background-color: bisque;
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow-pulse {
+  0% {
+    box-shadow: 0 0 0px rgba(255, 255, 255, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+
+  100% {
+    box-shadow: 0 0 0px rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out forwards;
+}
+
+.animate-glow {
+  animation: glow-pulse 3s infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+.bg-dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.mask-radial-faded {
+  mask-image: radial-gradient(circle at center, black, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
 }

@@ -1,11 +1,23 @@
 import connectDB from "@/lib/mongodb";
 import Task from "@/models/Tasks";
 
-export async function GET(){
+export async function GET(request: Request){
     try{
         await connectDB();
 
-        const tasks = await Task.find();
+        const url = new URL(request.url);
+        const isTrash = url.searchParams.get("trash") === "true";
+
+        const isAll = url.searchParams.get("all") === "true";
+
+        let query = {};
+        if (isTrash) {
+            query = { isDeleted: true };
+        } else if (!isAll) {
+            query = { isDeleted: { $ne: true } };
+        }
+
+        const tasks = await Task.find(query);
 
         return Response.json(tasks);
 
